@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char *d;
-	const char *s = src;
+	const char *s;
 
 	d = dest;
 	s = src;
@@ -16,13 +16,12 @@ void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
 
 int	main(void)
 {
-	char *restrict dest;
-	char *restrict src;
+	char *dest;
+	char *src;
 
 	dest = malloc(8);
 	src = "hihello";
-	ft_memcpy(dest, src, 7);
-	dest[7] = '\0';
+	ft_memcpy(dest, src, 8);
 	printf("%s\n", dest);
 	free(dest);
 	return (0);
