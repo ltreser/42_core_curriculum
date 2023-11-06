@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:45:56 by ltreser           #+#    #+#             */
-/*   Updated: 2023/07/20 20:18:43 by ltreser          ###   ########.fr       */
+/*   Created: 2023/05/26 00:57:42 by ltreser           #+#    #+#             */
+/*   Updated: 2023/05/26 00:58:16 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-/*return length of a string*/
+/*checks for printable characters*/
 
-size_t	ft_strlen(const char *s)
+int	ft_isprint(int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (c >= 32 && c <= 126);
 }

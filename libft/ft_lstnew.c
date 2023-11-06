@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ltreser <ltreser@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:45:56 by ltreser           #+#    #+#             */
-/*   Updated: 2023/07/20 20:18:43 by ltreser          ###   ########.fr       */
+/*   Created: 2023/07/21 00:42:25 by ltreser           #+#    #+#             */
+/*   Updated: 2023/08/06 19:09:25 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-/*return length of a string*/
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*node;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

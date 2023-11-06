@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ltreser <ltreser@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:45:56 by ltreser           #+#    #+#             */
-/*   Updated: 2023/07/20 20:18:43 by ltreser          ###   ########.fr       */
+/*   Created: 2023/07/10 21:11:35 by ltreser           #+#    #+#             */
+/*   Updated: 2023/07/13 17:18:20 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-/*return length of a string*/
+/*modify s according to function f index by index*/
 
-size_t	ft_strlen(const char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
+	{
+		f(i, &s[i]);
 		i++;
-	return (i);
+	}
 }

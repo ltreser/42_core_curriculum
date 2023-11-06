@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ltreser <ltreser@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:45:56 by ltreser           #+#    #+#             */
-/*   Updated: 2023/07/20 20:18:43 by ltreser          ###   ########.fr       */
+/*   Created: 2023/07/10 19:16:44 by ltreser           #+#    #+#             */
+/*   Updated: 2023/07/13 17:19:47 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-/*return length of a string*/
+#include <unistd.h>
+/*write string to fd, fd = 1 for terminal*/
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])
+	{
+		write(fd, &s[i], 1);
 		i++;
-	return (i);
+	}
 }

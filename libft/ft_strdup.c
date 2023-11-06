@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 21:45:56 by ltreser           #+#    #+#             */
-/*   Updated: 2023/07/20 20:18:43 by ltreser          ###   ########.fr       */
+/*   Created: 2023/05/20 20:10:42 by ltreser           #+#    #+#             */
+/*   Updated: 2023/06/25 23:50:25 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-/*return length of a string*/
+/*return pointer to new duplicate of string s*/
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	char	*ptr;
+	int		i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	i = ft_strlen(s);
+	ptr = (char *) malloc(sizeof(char) * (i + 1));
+	if (!ptr)
+		return (0);
+	ptr[i] = '\0';
+	while (--i >= 0)
+		ptr[i] = s[i];
+	return (ptr);
 }

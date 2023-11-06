@@ -1,28 +1,27 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltreser <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 00:37:02 by ltreser           #+#    #+#             */
+/*   Updated: 2023/06/25 23:51:23 by ltreser          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*fill the first n bytes of the memory area pointed to by s with c*/
+#include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t i;
+	unsigned char	*ptr;
 
-	i = 0;
-	while (n > i)
+	ptr = (unsigned char *) s;
+	while (n--)
 	{
-		((unsigned char*) s)[i] = (unsigned char) c;
-		i++;
+		*ptr = (unsigned char) c;
+		ptr++;
 	}
 	return (s);
-}
-
-int	main(void)
-{
-	char str[] = "blablabla";
-	char c[] = "blabla";
-	printf("str before ft_memset: %s\n", str);
-	ft_memset(str, 'b', 3);
-	printf("str after ft_memset: %s\n", str);
-	printf("c before memset: %s\n", c);
-	memset(c, 'a', 6);
-	printf("c after memset: %s\n", c);
-	return (0);
 }
